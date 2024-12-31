@@ -60,6 +60,6 @@ const lines = [
   ...Section_Light,
   '*',
   '$',
-  'Happy birthday@',
+  'Happy birthday',
   '$'
 ]

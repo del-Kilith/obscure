@@ -35,6 +35,8 @@ pipeline.start();
     async () => await transition(State.Light, State.Day, 4000),
   ][Symbol.iterator]()
 
+  await delay(2000)
+
   for (const line of lines) {
     const dbgline = line.replace('-','').replace('@', '')
     if (dbgline.length > 30) {
