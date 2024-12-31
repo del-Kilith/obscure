@@ -35,8 +35,6 @@ pipeline.start();
     async () => await transition(State.Light, State.Day, 4000),
   ][Symbol.iterator]()
 
-  await prepareTyping(main, { before: 3000, after: 2000 })
-
   for (const line of lines) {
     const dbgline = line.replace('-','').replace('@', '')
     if (dbgline.length > 30) {
@@ -45,29 +43,32 @@ pipeline.start();
 
     if (line === '$') {
       await stopTyping(main)
+      await delay('pause.long')
       await fadeText(main, Delays.pause.long.min)
-      await prepareTyping(main, {before: Delays.pause.short.max, after: Delays.breath.min})
     } else if (line === '*') {
       await sequence.next().value()
     } else {
       const node = main.appendChild(document.createElement('p'))
+      if (!container.classList.contains('typing')) {
+        await prepareTyping(main, {before: Delays.pause.short.max, after: Delays.breath.min})
+      }
       await type(node, line)
     }
     await delay(line.length <= 1 ? 'pause.short' : 'breath')
   }
 
   await stopTyping(main)
-  await transition(State.Day, State.Loop0, 20 * 1000)
 
   const loopTransitionTime = 20
-  const loopHoldThemeFor = 5
+  const loopHoldThemeFor = 10
   const loop = [
-    async () => await transition(State.Loop0, State.Loop1, loopTransitionTime * 1000),
+    async () => await transition(State.Day  , State.Loop1, loopTransitionTime * 1000),
     async () => await transition(State.Loop1, State.Loop2, loopTransitionTime * 1000),
     async () => await transition(State.Loop2, State.Loop3, loopTransitionTime * 1000),
     async () => await transition(State.Loop3, State.Loop4, loopTransitionTime * 1000),
     async () => await transition(State.Loop4, State.Loop5, loopTransitionTime * 1000),
-    async () => await transition(State.Loop5, State.Loop0, loopTransitionTime * 1000),
+    async () => await transition(State.Loop5, State.Loop6, loopTransitionTime * 1000),
+    async () => await transition(State.Loop6, State.Day  , loopTransitionTime * 1000),
   ]
 
   let i = 0

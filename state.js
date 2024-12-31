@@ -85,7 +85,7 @@ const State = {
   },
   Loop2: {
     gradient: [
-      '#309fd6',
+      '#4f80bf',
       '#a66edd',
       '#f180f5'
     ],
@@ -96,8 +96,8 @@ const State = {
   },
   Loop3: {
     gradient: [
-      '#30d651',
-      '#6ed4dd',
+      '#55af67',
+      '#7bb3d1',
       '#936bf3'
     ],
     rippleColor: '#6EDDAF',
@@ -107,16 +107,27 @@ const State = {
   },
   Loop4: {
     gradient: [
-      '#faea7e',
-      '#bcfa8d',
-      '#6bf3f3'
+      '#66bc59',
+      '#7dcd8d',
+      '#7cc9cf'
     ],
-    rippleColor: '#8DFA94',
+    rippleColor: '#7DCDB5',
     rippleMaxOpacity: 70,
     text: 'black',
     name: 'Loop4'
   },
   Loop5: {
+    gradient: [
+      '#d3c468',
+      '#abd889',
+      '#6bf3f3'
+    ],
+    rippleColor: '#8DFA94',
+    rippleMaxOpacity: 70,
+    text: 'black',
+    name: 'Loop5'
+  },
+  Loop6: {
     gradient: [
       '#fa857e',
       '#faca8d',
@@ -125,7 +136,7 @@ const State = {
     rippleColor: '#F3FA8D',
     rippleMaxOpacity: 70,
     text: 'black',
-    name: 'Loop5'
+    name: 'Loop6'
   }
 }
 

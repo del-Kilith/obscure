@@ -34,10 +34,7 @@ async function prepareTyping(container, { before, after }) {
   textDebugInfo.update(`Preparing container for typing: [before: ${before}, after: ${after}]`)
   await delay(before)
   container.classList.add('typing')
-  const node = container.appendChild(document.createElement('p'))
-  node.innerHTML = '&nbsp;'
   await delay(after)
-  container.removeChild(node)
 }
 
 /**
@@ -54,8 +51,7 @@ async function stopTyping(container) {
   }
 
   const currentTime = Math.round(Date.now())
-  const timeOfACycle = 2 * 1000
-  const sleepUntil = roundUpToMultipleOfTen(currentTime) + timeOfACycle
+  const sleepUntil = roundUpToMultipleOfTen()
   const sleepFor = sleepUntil - currentTime
 
   textDebugInfo.update(`Stopping - awaiting ${sleepFor / 1000}s`)
@@ -66,13 +62,11 @@ async function stopTyping(container) {
 
 async function type(
   /* HTMLElement */ container,
-  /* string[] */ text
+  /* string */ text
 ) {
   textDebugInfo.update(`Typing line`)
   for (const char of text) {
-    if (char === '@') {
-      await delay('pause.long')
-    } else if (char === '-') {
+    if (char === '-') {
       await delay('pause.short')
     } else {
       container.textContent += char

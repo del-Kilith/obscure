@@ -33,13 +33,12 @@ body:before {
   position: absolute;
   inset: 0;
   background: var(--t05);
-  background: repeating-linear-gradient(
+  background: linear-gradient(
     to bottom left,
     var(--t00)   0%,
-    var(--t05)  var(--color-stop),
+    var(--t05)  45%,
     var(--t10) 100%
   );
-  animation: gradient-loop 20s linear infinite alternate;
 }
 
 canvas {
@@ -63,17 +62,6 @@ main.typing > :last-child:after {
   animation: blink 1s infinite steps(2);
 }
 
-#debug {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-}
-
-#debug > div {
-  display: flex;
-  gap: 1rem;
-}
-
 p {
   color: var(--txt);
   margin: 0.5rem;
@@ -84,4 +72,15 @@ p {
   position: relative;
   min-height: 1rem;
   font-weight: 400;
+}
+
+#debug {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+#debug > div {
+  display: flex;
+  gap: 1rem;
 }

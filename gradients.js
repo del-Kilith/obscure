@@ -31,7 +31,7 @@ function updateGradientGuideline(from, to) {
  * @param percent a number between 0 and 1
  */
 function getColorAtPercent(row, percent) {
-  const pixel = Math.floor(percent * _resolution)
+  const pixel = Math.clamp(Math.floor(percent * _resolution), 0, _resolution)
   const [r, g, b] = _ctx.getImageData(pixel, row, 1, 1).data
   const hex = n => n.toString(16).padStart(2, '0')
   return `#${hex(r)}${hex(g)}${hex(b)}`
