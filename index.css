@@ -34,7 +34,7 @@ body:before {
   inset: 0;
   background: var(--t05);
   background: linear-gradient(
-    4.88rad,
+    3.3rad,
     var(--t00)   0%,
     var(--t05)  45%,
     var(--t10) 100%
