@@ -1,5 +1,5 @@
 async function attemptToAcquireWakeLock() {
-  const wakeStatus = createDebugDisplay(false)
+  const wakeStatus = createDebugDisplay('wakeLock', { defaultHolder: false })
 
   try {
     const wakeLock = await navigator.wakeLock.request('screen')

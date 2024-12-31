@@ -19,7 +19,7 @@ const Delays = {
   }
 }
 
-const textDebugInfo = createDebugDisplay(false)
+const textDebugInfo = createDebugDisplay('text', { defaultHolder: false })
 
 async function delay(/* string | number */ pathOrTime = 0) {
   if (typeof pathOrTime === 'number') {

@@ -11,7 +11,7 @@ if (!isDebug) {
   console.warn = () => {}
   console.error = () => {}
 } else {
-  const timeDisplay = createDebugDisplay()
+  const timeDisplay = createDebugDisplay('timer', { printLogs: false })
   const increment = 0.1
   let count = 0
   const updateTime = () => {
@@ -22,7 +22,7 @@ if (!isDebug) {
   setTimeout(updateTime, 1000 * increment)
 }
 
-function createDebugDisplay(defaultHolder = true) {
+function createDebugDisplay(id, { defaultHolder = true, printLogs = true } = {}) {
   const parent = defaultHolder ? holder : container.appendChild(document.createElement('div'))
   const element = parent.appendChild(document.createElement('p'))
 
@@ -32,6 +32,7 @@ function createDebugDisplay(defaultHolder = true) {
         return
       }
       element.innerText = content
+      printLogs && console.log(`[${id}]`, content)
     }
   }
 }

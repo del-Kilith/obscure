@@ -1,5 +1,5 @@
-const _canvas = document.createElement("canvas")
-const _ctx = _canvas.getContext("2d")
+const _canvas = document.createElement('canvas')
+const _ctx = _canvas.getContext('2d', { willReadFrequently: true })
 const _resolution = 1000
 
 _canvas.width = _resolution

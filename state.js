@@ -130,7 +130,7 @@ const State = {
 }
 
 const root = document.querySelector(':root')
-const transitionDebugText = createDebugDisplay()
+const transitionDebugText = createDebugDisplay('state')
 
 /**
  * Sets the [t00, t05, t10] properties in the root node
@@ -165,7 +165,7 @@ function initialize(state) {
  * @param duration transition duration in milliseconds
  */
 function transition(from, to, duration) {
-  transitionDebugText.update(`Transition from ${from.name} to ${to.name}`)
+  transitionDebugText.update(`Transition from ${from.name} to ${to.name} [requested: ${duration / 1000}s]`)
 
   const startTime = performance.now()
   return new Promise(resolve => {
