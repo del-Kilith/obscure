@@ -1,0 +1,23 @@
+@property --color-stop {
+  syntax: '<percentage>';
+  initial-value: 45%;
+  inherits: false;
+}
+
+@keyframes gradient-loop {
+  0% {
+    --color-stop: 45%;
+  }
+  100% {
+    --color-stop: 55%;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right: 2px solid var(--txt);;
+  }
+  100% {
+    border-right: none;
+  }
+}
